@@ -15,7 +15,7 @@ def lancer():
     while not fini:
         question = responses.get_question(responses)
         if question != old_question and question is not None:
-            print("question : type=" + question.__str__())
+            print("question : type=" + question.pos.__str__())
             rf = open('./1/reponses.txt','w')
             rf.write(str(randrange(6)))
             rf.close()

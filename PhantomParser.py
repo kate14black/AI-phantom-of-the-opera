@@ -73,7 +73,7 @@ class skip(object):
         return self.value
 
 
-class Question(list):
+class Question:
 
     class Type(Enum):
         unknown = 0
@@ -115,17 +115,17 @@ class Question(list):
         self._tuile = tuile
         self._line = line
         self._type = type
-        list.__init__(self, *args)
+        self._pos = args
 
     def __getitem__(self, key):
         return list.__getitem__(self, key)
 
     def __repr__(self):
         return '<{c!s}:{on!r} {t!r} {s!r}>'.format(c=self.__class__.__name__, on=self._tuile,
-                                                   t=self._type, s=list.__repr__(self))
+                                                   t=self._type, s=self._pos)
 
     def __str__(self):
-        return '{t!s} {s!s}'.format(t=self._type, s=list.__str__(self))
+        return '{t!s} {s!s}'.format(t=self._type, s=self._pos)
 
     @property
     def tuile(self):
@@ -134,6 +134,10 @@ class Question(list):
     @property
     def line(self):
         return self._line
+
+    @property
+    def pos(self):
+        return self._pos
 
     @property
     def type(self):
