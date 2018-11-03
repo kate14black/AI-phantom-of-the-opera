@@ -1,7 +1,7 @@
 from random import shuffle,randrange
 from time import sleep
 from threading import Thread
-import dummy0, dummy1
+import dummy0, ekatPhantom
 
 latence = 0.01
 permanents, deux, avant, apres = {'rose'}, {'rouge','gris','bleu'}, {'violet','marron'}, {'noir','blanc'}
@@ -187,5 +187,5 @@ class partie:
 
 joueurs = [joueur(0),joueur(1)]
 Thread(target=dummy0.lancer).start()
-Thread(target=dummy1.lancer).start()
+Thread(target=ekatPhantom.lancer).start()
 partie(joueurs).lancer()
